@@ -22,7 +22,7 @@ void data(Person& person_data) {
 	std::cout << "Введите баланс: ";
 	std::cin >> balance;
 
-	int after_balance = 0;
+	int after_balance;
 	std::cout << "Введите новый баланс: ";
 	std::cin >> after_balance;
 
