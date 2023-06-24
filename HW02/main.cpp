@@ -70,7 +70,8 @@ int main() {
 
     while(true) {
         std::cout << "Введите номер месяца: ";
-        std::cin >> user_number;month_number = static_cast<month>(user_number);
+        std::cin >> user_number;
+        month_number = static_cast<month>(user_number);
         std::string monthName = mn(month_number);
         std:: cout << '\n';
         if(user_number < 0 || user_number > 12) {
