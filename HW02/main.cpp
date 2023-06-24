@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <windows.h>
+//#include <windows.h>
 
 enum month {
     Январь = 1,
@@ -62,16 +62,16 @@ std::string mn(month num){
 }
 
 int main() {
-    SetConsoleCP(CP_UTF8);
-    SetConsoleOutputCP(CP_UTF8);
+  /*  SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);*/
 
-    month month_number = month::Январь;
-    int user_number = static_cast<month>(user_number);
+    month month_number = Январь;
+    int user_number;
 
-    while(month_number >=1 && month_number <=12) {
+    while(true) {
         std::cout << "Введите номер месяца: ";
-        std::cin >> user_number;
-        mn(static_cast<month>(user_number));
+        std::cin >> user_number;month_number = static_cast<month>(user_number);
+        std::string monthName = mn(month_number);
         std:: cout << '\n';
         if(user_number < 0 || user_number > 12) {
                 std::cout << "Неправильный номер! " << '\n';
