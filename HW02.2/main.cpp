@@ -10,26 +10,23 @@ struct Person {
 
 void data(Person& person_data) {
 
-	int account_number;
 	std::cout << "Введите номер счёта: ";
-	std::cin >> account_number;
+	std::cin >> person_data.account_number;
 
-	std::string first_name;
 	std::cout << "Введите имя владельца: ";
-	std::cin >> first_name;
+	std::cin >> person_data.first_name;
 	
-	int balance;
 	std::cout << "Введите баланс: ";
-	std::cin >> balance;
+	std::cin >> person_data.balance;
 
-	int after_balance;
 	std::cout << "Введите новый баланс: ";
-	std::cin >> after_balance;
+	std::cin >> person_data.after_balance;
+	std::cout << '\n';
 
 	std::cout << "Ваш счет: ";
-	std::cout << first_name << ','
-		<< ' ' << account_number << ','
-		<< ' ' << after_balance << '\n';
+	std::cout << person_data.first_name << ','
+		<< ' ' << person_data.account_number << ','
+		<< ' ' << person_data.after_balance << '\n';
 	
 }
 
@@ -39,7 +36,5 @@ int main() {
 
 	Person person_data;
 	data(person_data);
-
-	std::cout << person_data.first_name;
 
 }
