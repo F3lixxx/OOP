@@ -17,7 +17,7 @@ enum month {
     Декабрь
 };
 
-std::string mn(int num){
+std::string mn(month num){
     std::string id_month;
     switch (num) {
         case Январь:
@@ -66,12 +66,12 @@ int main() {
     SetConsoleOutputCP(CP_UTF8);
 
     month month_number = month::Январь;
-    int user_number;
+    int user_number = static_cast<month>(user_number);
 
     while(month_number >=1 && month_number <=12) {
         std::cout << "Введите номер месяца: ";
         std::cin >> user_number;
-        mn(user_number);
+        mn(static_cast<month>(user_number));
         std:: cout << '\n';
         if(user_number < 0 || user_number > 12) {
                 std::cout << "Неправильный номер! " << '\n';
