@@ -1,36 +1,36 @@
 #include <iostream>
+#include <windows.h>
 
 class counter{
     private :
-    int x=1;
+    int incr=1;
+    std::string point;
 public:
-    void add(){
-        char point;
-        std::cin >> point;
-        if (point == '+'){
-            x++;
-            std:: cout << x << std::endl;
+    std::string add(){
+            std::string point;
+            std:: cout << "Введите команду ('+', '-', '=' или 'x'): ";
+            std::cin >> point;
+            if (point == "+") {
+                incr += 1;
+            } else if (point == "-") {
+                incr--;
+            } else if (point == "=") {
+                std::cout << incr << std::endl;
+            }
+            if (point == "x") {
+                std::cout << "До свидания!" << std::endl;
+                return 0;
+            }
         }
-        else if (point == '-'){
-            x--;
-            std:: cout << x << std::endl;
-        }
-        else if (point == '='){
-            std:: cout << x << std::endl;
-        }
-        else if (point == 'x'){
-            std:: cout << "До свидания!" << std::endl;
-        }
-    }
 };
 
 int main() {
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+
     counter s;
-    while(true){
+    while(true) {
         s.add();
-        if (s == "x"){
-            break;
-        }
     }
     return 0;
 }

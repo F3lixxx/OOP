@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 
 class calculator {
 public:
@@ -47,40 +48,41 @@ public:
         return div1;
     }
 
-      bool set_num1(double num1) {
-          if (this->num1 == 0){
-              std::cout << "Неверный ввод! " << std::endl;
-              std::cout << "Введите num1: ";
-              std::cin >> this-> num1;
-              return false;
-      }
-          else {
-              return true;
-          }
-      }
-
-    bool set_num2(double num2) {
-        if (this->num2 == 0) {
-            std::cout << "Неверный ввод! " << std::endl;
-            std::cout << "Введите num2: ";
-            std::cin >> this-> num1;
-            return false;
-        }
-
-        else {
-            return true;
-        }
-    }
-
     double divide_2_1() {
         int div2;
         div2 = num1 / num2;
         std::cout << "num1" << '/' << "num2" << " = " << div2 << std::endl;
         return div2;
     }
+
+      bool set_num1(double num1) {
+            if (this->num1 == 0) {
+                std::cout << "Неверный ввод! " << std::endl;
+                std::cout << "Введите num1: ";
+                std::cin >> this->num1;
+                return false;
+            }
+            else {
+                return true;
+            }
+      }
+
+    bool set_num2(double num2) {
+            if (this->num2 == 0) {
+                std::cout << "Неверный ввод! " << std::endl;
+                std::cout << "Введите num2: ";
+                std::cin >> this->num1;
+                return false;
+            }
+            else {
+                return true;
+        }
+    }
     };
 
     int main() {
+        SetConsoleCP(CP_UTF8);
+        SetConsoleOutputCP(CP_UTF8);
         double number1;
         double number2;
             calculator res{};
@@ -96,5 +98,4 @@ public:
                 res.divide_2_1();
                 std::cout << '\n';
             }
-      return 0;
     }
