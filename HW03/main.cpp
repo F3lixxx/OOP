@@ -6,76 +6,77 @@ public:
     double num1;
     double num2;
 
-    void input() {
+    void input_1() {
         std::cout << "Введите num1: ";
         std::cin >> num1;
+    }
+
+    void input_2(){
         std::cout << "Введите num2: ";
         std::cin >> num2;
     }
 
     double add() {
-        int add;
+        double add;
         add = num1 + num2;
         std::cout << "num1" << '+' << "num2" << " = " << add << std::endl;
         return add;
     }
 
     double multiply() {
-        int multi;
+        double multi;
         multi = num1 * num2;
         std::cout << "num1" << '*' << "num2" << " = " << multi << std::endl;
         return multi;
     }
 
     double subtract_1_2() {
-        int subt;
+        double subt;
         subt = num2 - num1;
         std::cout << "num2" << '-' << "num1" << " = " << subt << std::endl;
         return subt;
     }
 
     double subtract_2_1() {
-        int subt;
+        double subt;
         subt = num1 - num2;
         std::cout << "num1" << '-' << "num2" << " = " << subt << std::endl;
         return subt;
     }
 
     double divide_1_2() {
-        int div1;
+        double div1;
         div1 = num1 / num2;
         std::cout << "num1" << '/' << "num2" << " = " << div1 << std::endl;
         return div1;
     }
 
     double divide_2_1() {
-        int div2;
+        double div2;
         div2 = num1 / num2;
         std::cout << "num1" << '/' << "num2" << " = " << div2 << std::endl;
         return div2;
     }
 
       bool set_num1(double num1) {
-            if (this->num1 == 0) {
-                std::cout << "Неверный ввод! " << std::endl;
-                std::cout << "Введите num1: ";
-                std::cin >> this->num1;
-                return false;
-            }
-            else {
-                return true;
-            }
+        while(true){
+              if (this->num1 == 0) {
+                  std::cout << "Неверный ввод! " << std::endl;
+                  std::cout << "Введите num1: ";
+                  std::cin >> this->num1;
+                  return false;
+              }
+              }
       }
 
     bool set_num2(double num2) {
-            if (this->num2 == 0) {
-                std::cout << "Неверный ввод! " << std::endl;
-                std::cout << "Введите num2: ";
-                std::cin >> this->num1;
-                return false;
-            }
-            else {
-                return true;
+        while(true){
+                if (this->num2 == 0) {
+                    std::cout << "Неверный ввод! " << std::endl;
+                    std::cout << "Введите num2: ";
+                    std::cin >> this->num1;
+                    return false;
+                }
         }
     }
     };
@@ -83,13 +84,12 @@ public:
     int main() {
         SetConsoleCP(CP_UTF8);
         SetConsoleOutputCP(CP_UTF8);
-        double number1;
-        double number2;
             calculator res{};
             while (true) {
-                res.input();
-                res.set_num1(number1);
-                res.set_num2(number2);
+                res.input_1();
+                res.set_num1(res.num1);
+                res.input_2();
+                res.set_num2(res.num2);
                 res.add();
                 res.multiply();
                 res.subtract_1_2();

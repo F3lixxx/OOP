@@ -24,7 +24,6 @@ public:
         }
     }
     bool add(std:: string& value) {
-
             if (value == "+") {
                 incr += 1;
                 return false;
