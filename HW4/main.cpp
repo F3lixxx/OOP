@@ -1,13 +1,16 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
+#include <windows.h>
 
 
 
 int main() {
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+
     std::string sizeM;
-    std::string sizeN;
+    std::string sizeN = "";
 
 
    // std::ifstream fin("D:\\ClionProjects\\OOP\\HW4\\in.txt"); //винда
@@ -24,10 +27,13 @@ int main() {
             while(!fin.eof()) {
                 for (int i = 0; i < 4; i++) {
                     fin >> sizeN;
-                    fout << sizeN << ',' << ' ';
-                    std::cout << sizeN << ',' << ' ';
+                    if ( i != 0 ) {
+                        std::cout << ',' << ' ';
+                        fout << ',' << ' ';
+                    }
+                    fout << sizeN;
+                    std::cout << sizeN;
                 }
-                std::cout << sizeN[4];
                 fout <<"\n";
                 std::cout << '\n';
             }
