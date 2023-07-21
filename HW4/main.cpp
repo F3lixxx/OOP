@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <windows.h>
+#include <vector>
 
 class address {
 private:
@@ -15,10 +16,7 @@ public:
 
 
     std::string get_output_address() const {
-        std::ofstream fout("out.txt");
         std::string output_address = city_ + ", " + street_ + ", " + std::to_string(home_) + ", " + std::to_string(apart_) + '\n';
-        fout << output_address;
-        std::cout << output_address;
         return output_address;
     }
 
@@ -33,22 +31,25 @@ int main() {
     std::ofstream fout("out.txt");
 
     int size = 0;
-    int* new_size = new int [size];
-    fin >> *new_size;
-    fout << *new_size << '\n';
-    std::cout << *new_size << '\n';
+    fin >> size;
+    fout << size << '\n';
+    std::cout << size << '\n';
 
-    for (int j = 0; j < *new_size; ++j) {
+    std::vector<address> addresses;
+    for (int j = 0; j < size; ++j) {
         int home;
         int apart;
         std::string city;
         std::string street;
         fin >> city >> street >> home >> apart;
-        address p1(city, street, home, apart);
-        fout << p1.get_output_address();
+        addresses.emplace_back(city, street, home, apart);
     }
     fin.close();
+
+    for (int j = size - 1; j >= 0; --j) {
+        fout << addresses[j].get_output_address();
+        std::cout << addresses[j].get_output_address();
+    }
     fout.close();
-    delete [] new_size;
     return 0;
 }
