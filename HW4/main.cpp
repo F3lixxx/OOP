@@ -1,60 +1,54 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-//#include <windows.h>
+#include <windows.h>
 
-class adress {
+class address {
 private:
-    std::string sizeM;
-    std::string sizeN;
+    const std::string city_;
+    const std::string street_;
+    int home_ = 0;
+    int apart_ = 0;
 public:
-    void set_words() {
-        std::ifstream fin("in.txt");
+    address(std::string city, std::string street, int home, int apart)
+    : city_(city), street_(street), home_(home), apart_(apart) {}
+
+
+    std::string get_output_address() const {
         std::ofstream fout("out.txt");
-        int size = 0;
-        fin >> size;
-        std::string *dynamic = new std::string[size];
-        if (fin.is_open()) {
-            while (!fin.eof()) {
-                for (int j = 0; j < size; j++) {
-                    fin >> dynamic[j];
-                    fout << dynamic[j] << "\n";
-                    std::cout << dynamic[j] << '\n';
-                }
-                /*int mass;
-                fin >> mass;
-                std::string* dynamic2 = new std::string [mass];
-                while (!fin.eof()) {
-                    for (int i = 0; i < mass; i++) {
-                        fin >> mass[i];
-                        if (i != 0) {
-                            std::cout << ',' << ' ';
-                            fout << ',' << ' ';
-                        }
-                        fout << mass[i];
-                        std::cout << mass[i];
-                    }*/
-/*
-                fout << "\n";
-                std::cout << '\n';
-*/
-            }
-            fin.close();
-        }
+        std::string output_address = city_ + ", " + street_ + ", " + std::to_string(home_) + ", " + std::to_string(apart_) + '\n';
+        fout << output_address;
+        std::cout << output_address;
+        return output_address;
     }
- /*       else {
-            std::cout << "File is not open";
-        }
-    }*/
+
 };
 
 
 int main() {
-    //SetConsoleCP(CP_UTF8);
-    //SetConsoleOutputCP(CP_UTF8);
+   SetConsoleCP(CP_UTF8);
+   SetConsoleOutputCP(CP_UTF8);
 
-    adress house;
-    house.set_words();
+    std::ifstream fin("in.txt");
+    std::ofstream fout("out.txt");
 
+    int size = 0;
+    int* new_size = new int [size];
+    fin >> *new_size;
+    fout << *new_size << '\n';
+    std::cout << *new_size << '\n';
+
+    for (int j = 0; j < *new_size; ++j) {
+        int home;
+        int apart;
+        std::string city;
+        std::string street;
+        fin >> city >> street >> home >> apart;
+        address p1(city, street, home, apart);
+        fout << p1.get_output_address();
+    }
+    fin.close();
+    fout.close();
+    delete [] new_size;
     return 0;
 }
