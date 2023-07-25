@@ -34,15 +34,17 @@ int main() {
     fin >> size;
     fout << size << '\n';
     std::cout << size << '\n';
-
-    std::vector<address> addresses;
+    int home;
+    int apart;
+    std::string city;
+    std::string street;
+  //  std::vector<address> addresses;
+    address addresses(city, street, home, apart);
+  //  std::string* add = new std::string[size];
     for (int j = 0; j < size; ++j) {
-        int home;
-        int apart;
-        std::string city;
-        std::string street;
+
         fin >> city >> street >> home >> apart;
-        addresses.emplace_back(city, street, home, apart);
+        //addresses.emplace_back(city, street, home, apart);
     }
     fin.close();
 

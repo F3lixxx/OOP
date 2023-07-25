@@ -48,15 +48,17 @@ int main() {
     std::cout << size << '\n';
 
 
-    std::vector<address> addresses;
+    std::vector<address> addresses, addresses2;
     for (int j = 0; j < size; ++j) {
         int home;
         int apart;
         std::string city;
         std::string street;
         fin >> city >> street >> home >> apart;
-        addresses.emplace_back(city, street, home, apart);
+        //        addresses.emplace_back(city, street, home, apart);
     }
+
+
     fin.close();
 
     for (int j = size - 1; j >= 0; --j) {
