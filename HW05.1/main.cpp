@@ -35,6 +35,13 @@ public:
 
     int get_angle_D() { return angle_D; }
 
+    virtual void right() {
+        std::cout << "Правильная" << std::endl;
+    }
+
+    virtual void sides() {
+        std::cout << "Количество сторон: " << std::endl;
+    }
 };
 
 class triangle : public Figure {
@@ -49,6 +56,14 @@ public:
         angle_B = side_B;
         angle_C = side_C;
     }
+
+    void right() override {
+        std::cout << "Правильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 3 << std::endl;
+    }
 };
 
 class right_triangle : public triangle {
@@ -57,17 +72,16 @@ public:
             : triangle(side_A, side_B, side_C,
                        angle_a, angle_b, 90) {
         name_figure = "Прямоугольный треугольник: ";
-
         four_angle = false;
     }
-/*    virtual void right(){
-        if (angle_c = 90){
-            sdt:: cout << "Правильная" << std::endl;
-        }
-        else {
-            sdt:: cout << "Неправильная"std::endl;
-        }
-    };*/
+
+    virtual void right() override {
+        std::cout << "Неправильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 3 << std::endl;
+    }
 };
 
 class isos_triangle : public triangle {
@@ -79,6 +93,14 @@ public:
         four_angle = false;
     }
 
+    virtual void right() override {
+        std::cout << "Неправильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 3 << std::endl;
+    }
+
 };
 
 class equil_triangle : public isos_triangle {
@@ -88,6 +110,14 @@ public:
                             angle_e_A = 60, angle_e_B = 60, angle_e_C = 60) {
         name_figure = "Равносторонний Треугольник: ";
         four_angle = false;
+    }
+
+    void right() override {
+        std::cout << "Правильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 3 << std::endl;
     }
 };
 
@@ -106,6 +136,14 @@ public:
         angle_C = angle_r_c;
         angle_D = angle_r_d;
     }
+
+    void right() override {
+        std::cout << "Неправильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 4 << std::endl;
+    }
 };
 
 class rectangle : public rectangle_usual {
@@ -117,6 +155,15 @@ public:
         name_figure = "Прямоугольник:";
         four_angle = true;
     }
+
+    void right() override {
+        std::cout << "Правильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 4 << std::endl;
+    }
+
 };
 
 class cube : public rectangle {
@@ -127,6 +174,14 @@ public:
                         cube_a = cube_b, cube_b = cube_c, cube_c = cube_d, cube_d = cube_a) {
         name_figure = "Квадрат:";
         four_angle = true;
+    }
+
+    void right() override {
+        std::cout << "Правильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 4 << std::endl;
     }
 };
 
@@ -139,16 +194,32 @@ public:
         name_figure = "Параллелограмм:";
         four_angle = true;
     }
+
+    void right() override {
+        std::cout << "Неправильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 4 << std::endl;
+    }
 };
 
-class rhomb : public parallel{
+class rhomb : public parallel {
 public:
     rhomb(int rhomb_A, int rhomb_B, int rhomb_C, int rhomb_D,
           int rhomb_a, int rhomb_b, int rhomb_c, int rhomb_d)
             : parallel(rhomb_A = rhomb_B, rhomb_B = rhomb_C, rhomb_C = rhomb_D, rhomb_D = rhomb_A,
-                       rhomb_a, rhomb_b, rhomb_c, rhomb_d){
+                       rhomb_a, rhomb_b, rhomb_c, rhomb_d) {
         name_figure = "Ромб:";
         four_angle = true;
+    }
+
+    void right() override {
+        std::cout << "Неправильная" << std::endl;
+    }
+
+    void sides() override {
+        std::cout << "Количество сторон: " << 4 << std::endl;
     }
 };
 
@@ -156,6 +227,9 @@ public:
 void print_info(Figure &figure) {
     std::cout << '\n';
     std::cout << figure.get_name_figure() << std::endl;
+
+    figure.right();
+    figure.sides();
 
     std::cout << "Стороны: ";
     std::cout << "a=" << figure.get_sides_a() << " b=" << figure.get_sides_b() << " c=" << figure.get_sides_c();
@@ -203,6 +277,6 @@ int main() {
     rhomb rhomb1(89, 79, 69, 59, 66, 77, 11, 22);
     print_info(rhomb1);
 
-    system("pause");
+    //system("pause");
     return 0;
 }
