@@ -1,4 +1,5 @@
 #include <iostream>
+#include <windows.h>
 
 class Figure {
 protected:
@@ -39,6 +40,8 @@ public:
 class triangle : public Figure {
 public:
     triangle(int side_a, int side_b, int side_c, int side_A, int side_B, int side_C) {
+        name_figure = "Треугольник:";
+        four_angle = false;
         sides_a = side_a;
         sides_b = side_b;
         sides_c = side_c;
@@ -54,8 +57,17 @@ public:
             : triangle(side_A, side_B, side_C,
                        angle_a, angle_b, 90) {
         name_figure = "Прямоугольный треугольник: ";
+
         four_angle = false;
     }
+/*    virtual void right(){
+        if (angle_c = 90){
+            sdt:: cout << "Правильная" << std::endl;
+        }
+        else {
+            sdt:: cout << "Неправильная"std::endl;
+        }
+    };*/
 };
 
 class isos_triangle : public triangle {
@@ -66,6 +78,7 @@ public:
         name_figure = "Равнобедренный Треугольник: ";
         four_angle = false;
     }
+
 };
 
 class equil_triangle : public isos_triangle {
@@ -82,6 +95,8 @@ class rectangle_usual : public Figure {
 public:
     rectangle_usual(int side_r_a1, int side_r_b1, int side_r_c1, int side_r_d1,
                     int angle_r_a, int angle_r_b, int angle_r_c, int angle_r_d) {
+        name_figure = "Четырёхугольник:";
+        four_angle = true;
         sides_a = side_r_a1;
         sides_b = side_r_b1;
         sides_c = side_r_c1;
@@ -107,9 +122,9 @@ public:
 class cube : public rectangle {
 public:
     cube(int cube_A, int cube_B, int cube_C, int cube_D, int cube_a, int cube_b, int cube_c,
-              int cube_d)
+         int cube_d)
             : rectangle(cube_A = cube_B, cube_B = cube_C, cube_C = cube_D, cube_D = cube_A,
-                              cube_a = cube_b, cube_b = cube_c, cube_c = cube_d, cube_d = cube_a) {
+                        cube_a = cube_b, cube_b = cube_c, cube_c = cube_d, cube_d = cube_a) {
         name_figure = "Квадрат:";
         four_angle = true;
     }
@@ -120,7 +135,7 @@ public:
     parallel(int parral_A, int parral_B, int parral_C, int parral_D,
              int parral_a, int parral_b, int parral_c, int parral_d)
             : rectangle_usual(parral_A, parral_B, parral_C = parral_A, parral_D = parral_B,
-                   parral_a, parral_b, parral_c = parral_a, parral_d = parral_b) {
+                              parral_a, parral_b, parral_c = parral_a, parral_d = parral_b) {
         name_figure = "Параллелограмм:";
         four_angle = true;
     }
@@ -130,8 +145,8 @@ class rhomb : public parallel{
 public:
     rhomb(int rhomb_A, int rhomb_B, int rhomb_C, int rhomb_D,
           int rhomb_a, int rhomb_b, int rhomb_c, int rhomb_d)
-          : parallel(rhomb_A = rhomb_B, rhomb_B = rhomb_C, rhomb_C = rhomb_D, rhomb_D = rhomb_A,
-                     rhomb_a, rhomb_b, rhomb_c, rhomb_d){
+            : parallel(rhomb_A = rhomb_B, rhomb_B = rhomb_C, rhomb_C = rhomb_D, rhomb_D = rhomb_A,
+                       rhomb_a, rhomb_b, rhomb_c, rhomb_d){
         name_figure = "Ромб:";
         four_angle = true;
     }
@@ -157,6 +172,13 @@ void print_info(Figure &figure) {
 
 
 int main() {
+
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+
+    triangle t(10, 20, 30, 50, 60, 70);
+    print_info(t);
+
     right_triangle r_t(10, 20, 30, 40, 50, 60);
     print_info(r_t);
 
@@ -165,6 +187,9 @@ int main() {
 
     equil_triangle e_t(55, 22, 66, 77, 11, 22);
     print_info(e_t);
+
+    rectangle_usual r_u(10, 20, 30, 50, 60, 70, 80, 90);
+    print_info(r_u);
 
     rectangle rec(89, 79, 69, 59, 66, 77, 11, 22);
     print_info(rec);
@@ -178,5 +203,6 @@ int main() {
     rhomb rhomb1(89, 79, 69, 59, 66, 77, 11, 22);
     print_info(rhomb1);
 
+    system("pause");
     return 0;
 }
