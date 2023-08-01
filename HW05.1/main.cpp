@@ -3,6 +3,234 @@
 
 class Figure {
 protected:
+    std::string name_figure;
+    int sides_;
+public:
+
+    std::string get_name_figure() { return name_figure; }
+
+    virtual bool check_info(){ return false; } //пишем проверку
+
+    virtual void right() {}; //подставляем check_info
+
+    virtual void sides() {}; //выводим инфу про количество сторон
+};
+
+class Fig : public Figure{
+protected:
+    int sides_ = 0;
+public:
+    Fig(): Figure(){
+        name_figure = "Фигура: ";
+        std::cout << name_figure << '\n';
+    }
+
+     bool check_info() override
+     {
+        if (sides_ == 0){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+     void right() override
+    {
+        if (check_info()) {
+            std::cout << "Правильная" << std::endl;
+        }
+        else{
+
+            std::cout << "Неправильная" << std::endl;
+        }
+    }
+
+     void sides() override
+    {
+        std::cout << "Количество сторон: "<< sides_ << std::endl;
+    }
+};
+
+class triangle : public Figure {
+private:
+    int sides_a = 0;
+    int sides_b = 0;
+    int sides_c = 0;
+    int angle_A = 0;
+    int angle_B = 0;
+    int angle_C = 0;
+    int sides_ = 3;
+public:
+    int get_sides_a() { return sides_a; }
+
+    int get_sides_b() { return sides_b; }
+
+    int get_sides_c() { return sides_c; }
+
+    int get_angle_A() { return angle_A; }
+
+    int get_angle_B() { return angle_B; }
+
+    int get_angle_C() { return angle_C; }
+
+    triangle( int side_a, int side_b, int side_c, int side_A, int side_B, int side_C) : Figure() {
+        name_figure = "Треугольник:";
+        sides_a = side_a;
+        sides_b = side_b;
+        sides_c = side_c;
+        angle_A = side_A;
+        angle_B = side_B;
+        angle_C = side_C;
+    }
+
+     bool check_info() override
+    {
+        if (sides_ == 3){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+     void right() override
+    {
+        if (check_info()) {
+            std::cout << "Правильная" << std::endl;
+        }
+        else{
+
+            std::cout << "Неправильная" << std::endl;
+        }
+    }
+
+     void sides() override
+    {
+        std::cout << "Количество сторон: "<< sides_ << std::endl;
+    }
+
+};
+
+class right_triangle : public triangle {
+public:
+    right_triangle(int side_A, int side_B, int side_C, int angle_a, int angle_b, int angle_c)
+            : triangle(side_A, side_B, side_C,
+                       angle_a, angle_b, 90) {
+        name_figure = "Прямоугольный треугольник: ";
+    }
+    int angle_c;
+    int sides_ = 3;
+     bool check_info() override
+     {
+        if (angle_c == 90){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    void right() override
+    {
+        if (check_info()) {
+            std::cout << "Правильная" << std::endl;
+        }
+        else{
+
+            std::cout << "Неправильная" << std::endl;
+        }
+    }
+
+    void sides() override
+    {
+        std::cout << "Количество сторон: "<< sides_ << std::endl;
+    }
+};
+
+class isos_triangle : public triangle {
+public:
+    isos_triangle(int sideA, int sideB, int sideC, int angleA1, int angleB1, int angleC1)
+            : triangle(sideA = sideC, sideB, sideC,
+                       angleA1, angleB1, angleC1 = angleA1) {
+        name_figure = "Равнобедренный Треугольник: ";
+    }
+    int sideA;
+    int sideC;
+    int angleA1;
+    int angleC1;
+    int sides_ = 3;
+    bool check_info() override
+    {
+        if (sideA = sideC, angleC1 = angleA1){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    void right() override
+    {
+        if (check_info()) {
+            std::cout << "Правильная" << std::endl;
+        }
+        else{
+
+            std::cout << "Неправильная" << std::endl;
+        }
+    }
+
+    void sides() override
+    {
+        std::cout << "Количество сторон: "<< sides_ << std::endl;
+    }
+
+};
+
+class equil_triangle : public isos_triangle {
+public:
+    equil_triangle(int side_e_a, int side_e_b, int side_e_c)
+            : isos_triangle(side_e_a == side_e_b, side_e_b == side_e_c, side_e_c == side_e_a,
+                            60, 60, 60) {
+        name_figure = "Равносторонний Треугольник: ";
+    }
+    int side_e_a;
+    int side_e_b;
+    int side_e_c;
+    int angle_A;
+    int angle_B;
+    int angle_C;
+    bool check_info() override
+    {
+        if (side_e_a == side_e_b, side_e_b == side_e_c, side_e_c == side_e_a,
+                angle_A == 60, angle_B == 60, angle_C == 60){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    void right() override
+    {
+        if (check_info()) {
+            std::cout << "Правильная" << std::endl;
+        }
+        else{
+
+            std::cout << "Неправильная" << std::endl;
+        }
+    }
+
+    void sides() override
+    {
+        std::cout << "Количество сторон: "<< sides_ << std::endl;
+    }
+};
+
+class rectangle_usual : public Figure {
+private:
     int sides_a = 0;
     int sides_b = 0;
     int sides_c = 0;
@@ -11,14 +239,7 @@ protected:
     int angle_B = 0;
     int angle_C = 0;
     int angle_D = 0;
-    std::string name_figure;
-    bool four_angle = false;
-
 public:
-    std::string get_name_figure() { return name_figure; }
-
-    int get_four_angle() { return four_angle; }
-
     int get_sides_a() { return sides_a; }
 
     int get_sides_b() { return sides_b; }
@@ -35,98 +256,9 @@ public:
 
     int get_angle_D() { return angle_D; }
 
-    virtual void right() {
-        std::cout << "Правильная" << std::endl;
-    }
-
-    virtual void sides() {
-        std::cout << "Количество сторон: " << std::endl;
-    }
-};
-
-class triangle : public Figure {
-public:
-    triangle(int side_a, int side_b, int side_c, int side_A, int side_B, int side_C) {
-        name_figure = "Треугольник:";
-        four_angle = false;
-        sides_a = side_a;
-        sides_b = side_b;
-        sides_c = side_c;
-        angle_A = side_A;
-        angle_B = side_B;
-        angle_C = side_C;
-    }
-
-    void right() override {
-        std::cout << "Правильная" << std::endl;
-    }
-
-    void sides() override {
-        std::cout << "Количество сторон: " << 3 << std::endl;
-    }
-};
-
-class right_triangle : public triangle {
-public:
-    right_triangle(int side_A, int side_B, int side_C, int angle_a, int angle_b, int angle_c)
-            : triangle(side_A, side_B, side_C,
-                       angle_a, angle_b, 90) {
-        name_figure = "Прямоугольный треугольник: ";
-        four_angle = false;
-    }
-
-    virtual void right() override {
-        std::cout << "Неправильная" << std::endl;
-    }
-
-    void sides() override {
-        std::cout << "Количество сторон: " << 3 << std::endl;
-    }
-};
-
-class isos_triangle : public triangle {
-public:
-    isos_triangle(int sideA, int sideB, int sideC, int angleA1, int angleB1, int angleC1)
-            : triangle(sideA = sideC, sideB, sideC,
-                       angleA1, angleB1, angleC1 = angleA1) {
-        name_figure = "Равнобедренный Треугольник: ";
-        four_angle = false;
-    }
-
-    virtual void right() override {
-        std::cout << "Неправильная" << std::endl;
-    }
-
-    void sides() override {
-        std::cout << "Количество сторон: " << 3 << std::endl;
-    }
-
-};
-
-class equil_triangle : public isos_triangle {
-public:
-    equil_triangle(int side_e_a, int side_e_b, int side_e_c, int angle_e_A, int angle_e_B, int angle_e_C)
-            : isos_triangle(side_e_a = side_e_b, side_e_b = side_e_c, side_e_c = side_e_a,
-                            angle_e_A = 60, angle_e_B = 60, angle_e_C = 60) {
-        name_figure = "Равносторонний Треугольник: ";
-        four_angle = false;
-    }
-
-    void right() override {
-        std::cout << "Правильная" << std::endl;
-    }
-
-    void sides() override {
-        std::cout << "Количество сторон: " << 3 << std::endl;
-    }
-};
-
-class rectangle_usual : public Figure {
-public:
     rectangle_usual(int side_r_a1, int side_r_b1, int side_r_c1, int side_r_d1,
                     int angle_r_a, int angle_r_b, int angle_r_c, int angle_r_d) {
         name_figure = "Четырёхугольник:";
-        four_angle = true;
         sides_a = side_r_a1;
         sides_b = side_r_b1;
         sides_c = side_r_c1;
@@ -153,7 +285,6 @@ public:
             : rectangle_usual(side_r_A, side_r_B, side_r_C = side_r_A,
                               side_r_D = side_r_B, 90, 90, 90, 90) {
         name_figure = "Прямоугольник:";
-        four_angle = true;
     }
 
     void right() override {
@@ -173,7 +304,6 @@ public:
             : rectangle(cube_A = cube_B, cube_B = cube_C, cube_C = cube_D, cube_D = cube_A,
                         cube_a = cube_b, cube_b = cube_c, cube_c = cube_d, cube_d = cube_a) {
         name_figure = "Квадрат:";
-        four_angle = true;
     }
 
     void right() override {
@@ -192,7 +322,6 @@ public:
             : rectangle_usual(parral_A, parral_B, parral_C = parral_A, parral_D = parral_B,
                               parral_a, parral_b, parral_c = parral_a, parral_d = parral_b) {
         name_figure = "Параллелограмм:";
-        four_angle = true;
     }
 
     void right() override {
@@ -211,7 +340,6 @@ public:
             : parallel(rhomb_A = rhomb_B, rhomb_B = rhomb_C, rhomb_C = rhomb_D, rhomb_D = rhomb_A,
                        rhomb_a, rhomb_b, rhomb_c, rhomb_d) {
         name_figure = "Ромб:";
-        four_angle = true;
     }
 
     void right() override {
@@ -224,24 +352,33 @@ public:
 };
 
 
-void print_info(Figure &figure) {
+void print_info(triangle &tri) {
     std::cout << '\n';
-    std::cout << figure.get_name_figure() << std::endl;
+    std::cout << tri.get_name_figure() << std::endl;
 
-    figure.right();
-    figure.sides();
+    tri.right();
+    tri.sides();
 
     std::cout << "Стороны: ";
-    std::cout << "a=" << figure.get_sides_a() << " b=" << figure.get_sides_b() << " c=" << figure.get_sides_c();
-
-    if (figure.get_four_angle()) { std::cout << " d=" << figure.get_sides_d() << std::endl; }
-    else { std::cout << std::endl; }
+    std::cout << "a=" << tri.get_sides_a() << " b=" << tri.get_sides_b() << " c=" << tri.get_sides_c() << '\n';
 
     std::cout << "Углы: ";
-    std::cout << "A=" << figure.get_angle_A() << " B=" << figure.get_angle_B() << " C=" << figure.get_angle_C();
+    std::cout << "A=" << tri.get_angle_A() << " B=" << tri.get_angle_B() << " C=" << tri.get_angle_C() << '\n';
+}
 
-    if (figure.get_four_angle()) { std::cout << " D=" << figure.get_angle_D() << std::endl; }
-    else { std::cout << std::endl; }
+void print_info_rec(rectangle_usual &rec){
+
+    std::cout << '\n';
+    std::cout << rec.get_name_figure() << std::endl;
+
+    rec.right();
+    rec.sides();
+
+    std::cout << "Стороны: ";
+    std::cout << "a=" << rec.get_sides_a() << " b=" << rec.get_sides_b() << " c=" << rec.get_sides_c() << " d=" << rec.get_sides_d() << '\n';
+
+    std::cout << "Углы: ";
+    std::cout << "A=" << rec.get_angle_A() << " B=" << rec.get_angle_B() << " C=" << rec.get_angle_C() << " D=" << rec.get_angle_D() << '\n';
 }
 
 
@@ -250,33 +387,37 @@ int main() {
     SetConsoleCP(CP_UTF8);
     SetConsoleOutputCP(CP_UTF8);
 
+    Fig f;
+    f.check_info();
+    f.right();
+    f.sides();
+
     triangle t(10, 20, 30, 50, 60, 70);
     print_info(t);
 
-    right_triangle r_t(10, 20, 30, 40, 50, 60);
+    right_triangle r_t(10, 20, 30, 50, 60, 70);
     print_info(r_t);
 
-    isos_triangle i_t(10, 20, 30, 50, 60, 90);
+    isos_triangle i_t(10, 20, 30, 50, 60, 70);
     print_info(i_t);
 
-    equil_triangle e_t(55, 22, 66, 77, 11, 22);
+    equil_triangle e_t(10, 50, 70);
     print_info(e_t);
 
     rectangle_usual r_u(10, 20, 30, 50, 60, 70, 80, 90);
-    print_info(r_u);
+    print_info_rec(r_u);
 
     rectangle rec(89, 79, 69, 59, 66, 77, 11, 22);
-    print_info(rec);
+    print_info_rec(rec);
 
     cube cub(89, 79, 69, 59, 66, 77, 11, 22);
-    print_info(cub);
+    print_info_rec(cub);
 
     parallel parallel(89, 79, 69, 59, 66, 77, 11, 22);
-    print_info(parallel);
+    print_info_rec(parallel);
 
-    rhomb rhomb1(89, 79, 69, 59, 66, 77, 11, 22);
-    print_info(rhomb1);
+    rhomb rhombs(89, 79, 69, 59, 66, 77, 11, 22);
+    print_info_rec(rhombs);
 
-    //system("pause");
     return 0;
 }
