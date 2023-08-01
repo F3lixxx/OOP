@@ -24,7 +24,7 @@ public:
 
 class triangle : public figure {
 public:
-    triangle(int sides) : figure(sides) {
+    triangle(int sides) : figure(3) {
         name_figure = "Треугольник: ";
         //sides_count = sides;
     }
@@ -32,7 +32,7 @@ public:
 
 class quadrangle : public figure {
 public:
-    quadrangle(int sides) : figure(sides) {
+    quadrangle(int sides) : figure(4) {
         name_figure = "Квадрат: ";
     }
 };
