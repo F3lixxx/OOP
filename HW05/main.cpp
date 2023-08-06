@@ -96,7 +96,7 @@ public:
 class equil_triangle : public isos_triangle {
 public:
     equil_triangle(int side_e_a)
-            : isos_triangle(side_e_a, side_e_a, side_e_a, 60) {
+            : isos_triangle(side_e_a, side_e_a, 60, 60) {
         name_figure = "Равносторонний Треугольник: ";
     }
     void print_info () {
