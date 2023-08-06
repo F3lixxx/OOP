@@ -62,12 +62,13 @@ public:
                        angle_a, angle_b, 90) {
         name_figure = "Прямоугольный треугольник: ";
     }
-    void print_info () {
+
+    void print_info() {
         std::cout << '\n';
         std::cout << name_figure << std::endl;
 
         std::cout << "Стороны: ";
-        std::cout << "a=" <<get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << '\n';
+        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << '\n';
 
         std::cout << "Углы: ";
         std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << '\n';
@@ -81,12 +82,13 @@ public:
                        angleA1, angleB1, angleA1) {
         name_figure = "Равнобедренный Треугольник: ";
     }
-    void print_info () {
+
+    void print_info() {
         std::cout << '\n';
         std::cout << name_figure << std::endl;
 
         std::cout << "Стороны: ";
-        std::cout << "a=" <<get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << '\n';
+        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << '\n';
 
         std::cout << "Углы: ";
         std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << '\n';
@@ -99,12 +101,13 @@ public:
             : isos_triangle(side_e_a, side_e_a, 60, 60) {
         name_figure = "Равносторонний Треугольник: ";
     }
-    void print_info () {
+
+    void print_info() {
         std::cout << '\n';
         std::cout << name_figure << std::endl;
 
         std::cout << "Стороны: ";
-        std::cout << "a=" <<get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << '\n';
+        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << '\n';
 
         std::cout << "Углы: ";
         std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << '\n';
@@ -150,15 +153,18 @@ public:
         angle_C = angle_r_c;
         angle_D = angle_r_d;
     }
-    void print_info () {
+
+    void print_info() {
         std::cout << '\n';
         std::cout << name_figure << std::endl;
 
         std::cout << "Стороны: ";
-        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d() << '\n';
+        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d()
+                  << '\n';
 
         std::cout << "Углы: ";
-        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D() << '\n';
+        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D()
+                  << '\n';
     }
 };
 
@@ -169,15 +175,18 @@ public:
                               side_r_B, 90, 90, 90, 90) {
         name_figure = "Прямоугольник:";
     }
-    void print_info () {
+
+    void print_info() {
         std::cout << '\n';
         std::cout << name_figure << std::endl;
 
         std::cout << "Стороны: ";
-        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d() << '\n';
+        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d()
+                  << '\n';
 
         std::cout << "Углы: ";
-        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D() << '\n';
+        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D()
+                  << '\n';
     }
 };
 
@@ -187,15 +196,18 @@ public:
             : rectangle(cube_A, cube_A, 90) {
         name_figure = "Квадрат:";
     }
-    void print_info () {
+
+    void print_info() {
         std::cout << '\n';
         std::cout << name_figure << std::endl;
 
         std::cout << "Стороны: ";
-        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d() << '\n';
+        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d()
+                  << '\n';
 
         std::cout << "Углы: ";
-        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D() << '\n';
+        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D()
+                  << '\n';
     }
 };
 
@@ -207,15 +219,18 @@ public:
                               parral_a, parral_b, parral_a, parral_b) {
         name_figure = "Параллелограмм:";
     }
-    void print_info () {
+
+    void print_info() {
         std::cout << '\n';
         std::cout << name_figure << std::endl;
 
         std::cout << "Стороны: ";
-        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d() << '\n';
+        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d()
+                  << '\n';
 
         std::cout << "Углы: ";
-        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D() << '\n';
+        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D()
+                  << '\n';
     }
 };
 
@@ -226,15 +241,18 @@ public:
                        rhomb_a, rhomb_b) {
         name_figure = "Ромб:";
     }
-    void print_info () {
+
+    void print_info() {
         std::cout << '\n';
         std::cout << name_figure << std::endl;
 
         std::cout << "Стороны: ";
-        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d() << '\n';
+        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << " d=" << get_sides_d()
+                  << '\n';
 
         std::cout << "Углы: ";
-        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D() << '\n';
+        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << " D=" << get_angle_D()
+                  << '\n';
     }
 };
 
