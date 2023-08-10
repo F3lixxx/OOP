@@ -1,5 +1,5 @@
 #include <iostream>
-//#include <windows.h>
+#include <windows.h>
 
 class Figure {
 protected:
@@ -224,7 +224,8 @@ public:
     }
 
     bool check() override {
-        if (sides_a == sides_c && sides_b == sides_c && angle_A == 90, angle_B == 90, angle_C == 90, angle_D == 90) {
+        rectangle_usual::check();
+        if (sides_a == sides_c && sides_b == sides_c && angle_A == 90 && angle_B == 90 && angle_C == 90 && angle_D == 90) {
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
@@ -244,7 +245,7 @@ public:
 
     bool check() override {
         rectangle::check();
-        if (sides_a == sides_b == sides_c == sides_d && angle_A == 90, angle_B == 90, angle_C == 90, angle_D == 90) {
+        if (sides_a == sides_b == sides_c == sides_d && angle_A == 90 && angle_B == 90 && angle_C == 90 && angle_D == 90) {
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
@@ -268,6 +269,7 @@ public:
 
 
     bool check() override {
+        rectangle_usual::check();
         if (sides_a == sides_c && sides_b == sides_d && angle_A == angle_C && angle_B == angle_D) {
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
@@ -289,7 +291,8 @@ public:
     }
 
     bool check() override {
-        if (sides_a == sides_b == sides_c == sides_d && angle_A == angle_C, angle_B == angle_D) {
+        parallel::check();
+        if (sides_a == sides_b == sides_c == sides_d && angle_A == angle_C && angle_B == angle_D) {
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
@@ -302,8 +305,8 @@ public:
 
 int main() {
 
-/*    SetConsoleCP(CP_UTF8);
-    SetConsoleOutputCP(CP_UTF8);*/
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
 
 
     Figure f;
@@ -313,7 +316,7 @@ int main() {
     triangle t(10, 20, 30, 50, 60, 70);
     t.print_info();
 
-    right_triangle r_t(10, 20, 30, 50, 60);
+    right_triangle r_t(20, 30, 40, 90, 90);
     r_t.print_info();
 
     isos_triangle i_t(10, 20, 30, 60, 70, 80);
