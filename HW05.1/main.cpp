@@ -218,27 +218,6 @@ public:
         std::cout << "A=" << get_angle_K() << " B=" << get_angle_L() << " C=" << get_angle_M() << " D="
                   << get_angle_N() << '\n';
     }
-   /* void print() override {
-        std::cout << std::endl;
-        std::cout << name_figure << std::endl;
-
-        if () {
-            std::cout << "Правильная" << std::endl;
-        } else {
-            std::cout << "Неправильная" << std::endl;;
-        }
-
-        std::cout << "Количество сторон: " << sides_ << std::endl;
-
-
-        std::cout << "Стороны: ";
-        std::cout << "a=" << get_sides_k() << " b=" << get_sides_l() << " c=" << get_sides_m() << " d=" << get_sides_n()
-                  << '\n';
-
-        std::cout << "Углы: ";
-        std::cout << "A=" << get_angle_K() << " B=" << get_angle_L() << " C=" << get_angle_M() << " D="
-                  << get_angle_N() << '\n';
-    }*/
 };
 
 class rectangle : public rectangle_usual {

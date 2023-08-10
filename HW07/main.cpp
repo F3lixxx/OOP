@@ -1,8 +1,9 @@
 #include <iostream>
+#include <windows.h>
 
-#ifndef MODE
+
 #define MODE 1
-#endif
+#if defined MODE
 
 #if MODE == 1
 void add () {
@@ -18,16 +19,21 @@ void add () {
     std::cout << "Результат сложения: " << c << std::endl;
     }
 #endif
+
 int main() {
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+
 
 #if MODE == 1
     add();
 #elif MODE == 0
     std::cout << "Работаю в режиме тренировки " << std::endl;
 #else
-#error not allowed
-#endif
 
+#error "Неизвестный режим. Завершение работы."
+#endif
+    system ("pause");
     return 0;
 }
-
+#endif
