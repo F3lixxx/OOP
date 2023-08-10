@@ -1,5 +1,5 @@
 #include <iostream>
-#include <windows.h>
+//#include <windows.h>
 
 class Figure {
 protected:
@@ -7,6 +7,10 @@ protected:
     std::string name_figure;
 
 public:
+    Figure(int side){
+        name_figure = "Фигура: ";
+        sides_count = 0;
+    }
 
     std::string get_name() { return name_figure; }
 
@@ -14,26 +18,19 @@ public:
 
 };
 
-class figure : public Figure {
+class triangle : public Figure {
 public:
-    figure(int sides) : Figure() {
-        name_figure = "Фигура: ";
-        sides_count = sides;
-    }
-};
-
-class triangle : public figure {
-public:
-    triangle(int sides) : figure(3) {
+    triangle(int sides) : Figure(3) {
         name_figure = "Треугольник: ";
-        //sides_count = sides;
+        sides_count = 3;
     }
 };
 
-class quadrangle : public figure {
+class quadrangle : public Figure {
 public:
-    quadrangle(int sides) : figure(4) {
+    quadrangle(int sides) : Figure(4) {
         name_figure = "Квадрат: ";
+        sides_count = 4;
     }
 };
 
@@ -42,18 +39,18 @@ void print(Figure &figure) {
 }
 
 int main() {
-    SetConsoleCP(CP_UTF8);
-    SetConsoleOutputCP(CP_UTF8);
+/*    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);*/
 
     std::cout << "Количество сторон:" << std::endl;
 
-    figure f(0);
+    Figure f(1);
     print(f);
 
-    triangle tri(3);
+    triangle tri(2);
     print(tri);
 
-    quadrangle quad(4);
+    quadrangle quad(5);
     print(quad);
 
 

@@ -1,5 +1,5 @@
 #include <iostream>
-#include <windows.h>
+//#include <windows.h>
 
 class Figure {
 protected:
@@ -24,8 +24,8 @@ public:
 
     virtual void print_info() {
         std::cout << name_figure << std::endl;
+        check();
     }
-
 };
 
 class triangle : public Figure {
@@ -52,7 +52,6 @@ public:
 
     triangle(int side_a, int side_b, int side_c, int side_A, int side_B, int side_C) : Figure() {
         name_figure = "Треугольник:";
-
         sides_ = 3;
         sides_a = side_a;
         sides_b = side_b;
@@ -64,19 +63,18 @@ public:
 
     bool check() override {
         if (sides_ == 3 && angle_A + angle_B + angle_C == 180) {
-
-            std::cout << std::endl << name_figure << std::endl;
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
         } else {
-            std::cout << name_figure << std::endl;
             std::cout << "Неправильная" << std::endl;
             return false;
         }
     }
 
     void print_info() override {
+        std::cout << std::endl << name_figure << std::endl;
+        check();
         std::cout << "Стороны: ";
         std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << '\n';
 
@@ -93,19 +91,19 @@ public:
         name_figure = "Прямоугольный треугольник: ";
         sides_ = 3;
     }
-    bool check() override {
-        if (sides_ == 3 && angle_C == 90) {
 
-            std::cout << std::endl << name_figure << std::endl;
-            std::cout << "Правильная" << std::endl;
-            std::cout << "Количество сторон: " << sides_ << std::endl;
-            return true;
-        } else {
-            std::cout << name_figure << std::endl;
-            std::cout << "Неправильная" << std::endl;
-            return false;
+    bool check() override {
+        triangle::check();
+            if (sides_ == 3 && angle_C == 90) {
+                std::cout << "Правильная" << std::endl;
+                std::cout << "Количество сторон: " << sides_ << std::endl;
+                return true;
+            } else {
+                std::cout << name_figure << std::endl;
+                std::cout << "Неправильная" << std::endl;
+                return false;
+            }
         }
-    }
 };
 
 class isos_triangle : public triangle {
@@ -116,10 +114,10 @@ public:
         name_figure = "Равнобедренный Треугольник: ";
         sides_ = 3;
     }
-    bool check() override {
-        if (sides_a = sides_c, angle_A = angle_C) {
 
-            std::cout << std::endl << name_figure << std::endl;
+    bool check() override {
+        triangle::check();
+        if (sides_a == sides_c && angle_A == angle_C) {
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
@@ -129,7 +127,6 @@ public:
             return false;
         }
     }
-
 };
 
 class equil_triangle : public isos_triangle {
@@ -141,9 +138,8 @@ public:
     }
 
     bool check() override {
+        isos_triangle::check();
         if (sides_a = sides_b = sides_c, angle_A == 60 && angle_B == 60 && angle_C == 60) {
-
-            std::cout << std::endl << name_figure << std::endl;
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
@@ -195,25 +191,25 @@ public:
         angle_C = M;
         angle_D = N;
     }
-    bool check() override {
-        if (sides_ == 4 && angle_A + angle_B + angle_C + angle_D == 360) {
 
-            std::cout << std::endl << name_figure << std::endl;
+    bool check() override {
+
+        if (sides_ == 4 && angle_A + angle_B + angle_C + angle_D == 360) {
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
         } else {
-            std::cout << name_figure << std::endl;
             std::cout << "Неправильная" << std::endl;
             return false;
         }
     }
 
     void print_info() override {
+        std::cout << std::endl << name_figure << std::endl;
+        check();
         std::cout << "Стороны: ";
         std::cout << "a=" << get_sides_k() << " b=" << get_sides_l() << " c=" << get_sides_m() << " d=" << get_sides_n()
                   << '\n';
-
         std::cout << "Углы: ";
         std::cout << "A=" << get_angle_K() << " B=" << get_angle_L() << " C=" << get_angle_M() << " D="
                   << get_angle_N() << '\n';
@@ -228,14 +224,11 @@ public:
     }
 
     bool check() override {
-        if (sides_a == sides_c && sides_b == sides_c, angle_A == 90, angle_B == 90, angle_C == 90, angle_D == 90) {
-
-            std::cout << std::endl << name_figure << std::endl;
+        if (sides_a == sides_c && sides_b == sides_c && angle_A == 90, angle_B == 90, angle_C == 90, angle_D == 90) {
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
         } else {
-            std::cout << name_figure << std::endl;
             std::cout << "Неправильная" << std::endl;
             return false;
         }
@@ -250,14 +243,12 @@ public:
     }
 
     bool check() override {
+        rectangle::check();
         if (sides_a == sides_b == sides_c == sides_d && angle_A == 90, angle_B == 90, angle_C == 90, angle_D == 90) {
-
-            std::cout << std::endl << name_figure << std::endl;
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
         } else {
-            std::cout << name_figure << std::endl;
             std::cout << "Неправильная" << std::endl;
             return false;
         }
@@ -269,21 +260,19 @@ class parallel : public rectangle_usual {
 public:
     parallel(int parral_A, int parral_B, int parral_C, int parral_D,
              int parral_a, int parral_b, int parral_c, int parral_d)
-            : rectangle_usual(parral_A, parral_B, parral_C = parral_A, parral_D = parral_B,
+            : rectangle_usual(parral_A, parral_B, parral_A, parral_B,
                               parral_a, parral_b, parral_c = parral_a, parral_d = parral_b) {
         name_figure = "Параллелограмм:";
         sides_ = 4;
     }
 
-    bool check() override {
-        if (sides_a == sides_b && sides_c == sides_d && angle_A == angle_C, angle_B == angle_D) {
 
-            std::cout << std::endl << name_figure << std::endl;
+    bool check() override {
+        if (sides_a == sides_c && sides_b == sides_d && angle_A == angle_C && angle_B == angle_D) {
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
         } else {
-            std::cout << name_figure << std::endl;
             std::cout << "Неправильная" << std::endl;
             return false;
         }
@@ -301,13 +290,10 @@ public:
 
     bool check() override {
         if (sides_a == sides_b == sides_c == sides_d && angle_A == angle_C, angle_B == angle_D) {
-
-            std::cout << std::endl << name_figure << std::endl;
             std::cout << "Правильная" << std::endl;
             std::cout << "Количество сторон: " << sides_ << std::endl;
             return true;
         } else {
-            std::cout << name_figure << std::endl;
             std::cout << "Неправильная" << std::endl;
             return false;
         }
@@ -316,57 +302,40 @@ public:
 
 int main() {
 
-    SetConsoleCP(CP_UTF8);
-    SetConsoleOutputCP(CP_UTF8);
+/*    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);*/
 
 
     Figure f;
     f.print_info();
-    f.check();
+
 
     triangle t(10, 20, 30, 50, 60, 70);
-    t.check();
     t.print_info();
 
     right_triangle r_t(10, 20, 30, 50, 60);
-    r_t.check();
     r_t.print_info();
 
-    isos_triangle i_t(10, 20, 50, 60, 70, 80);
-    i_t.check();
+    isos_triangle i_t(10, 20, 30, 60, 70, 80);
     i_t.print_info();
 
     equil_triangle e_t(10);
-    e_t.check();
     e_t.print_info();
 
     rectangle_usual r_u(10, 20, 30, 40, 90, 90, 90, 90);
-    r_u.check();
     r_u.print_info();
 
     rectangle rec(10, 20);
-    rec.check();
     rec.print_info();
 
     cube cub(89);
-    cub.check();
     cub.print_info();
 
     parallel paralel(89, 79, 69, 59, 66, 77, 11, 22);
-    paralel.check();
     paralel.print_info();
 
     rhomb rhombs(89, 79, 69);
-    rhombs.check();
     rhombs.print_info();
-    /*
-
-
-
-
-
-
-      */
 
     return 0;
 }
