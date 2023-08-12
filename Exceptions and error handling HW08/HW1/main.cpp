@@ -1,18 +1,30 @@
 #include <iostream>
 #include <string>
 
-/*int function(std::string str, int forbidden_length){
+int function(std::string str, int forbidden_length) {
+    std::cout << "Count length: ";
+    std::cin >> forbidden_length;
+    while (forbidden_length != str.length()) {
+        std::cout << "Enter Word: ";
+        std::cin >> str;
+        if (forbidden_length == str.length()) {
+            throw std::length_error("You entered the word forbidden game! Goodbye");
+        }
+        std::cout << "Length word " << '"' << str << '"' << ' ' << str.length() << std::endl;
+    }
 
-}*/
+    return forbidden_length;
+}
 
 int main() {
 
     std::string word;
     int count = 0;
-    std::cout << "Count length: ";
-    std::cin >> count;
-    std::cout << "Enter Word: ";
-    std::cin >> word;
-    std::cout << "Length word " << word << " = " << word.length() << std::endl;
+    try {
+        std::cout << function(word, count);
+    } catch (const std::length_error &error) {
+        std::cout << error.what();
+    }
+
     return 0;
 }
