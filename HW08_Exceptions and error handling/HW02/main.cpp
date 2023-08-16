@@ -1,6 +1,5 @@
 #include <windows.h>
-#include "figure.h"
-#include "triangle.h"
+#include "triangle_8.h"
 #include "right_tri.h"
 #include "isos_tri.h"
 #include "equil_tri.h"
@@ -15,11 +14,25 @@ int main() {
     SetConsoleCP(CP_UTF8);
     SetConsoleOutputCP(CP_UTF8);
 
-    triangle tri(10, 20, 30, 50, 60, 70);
+    triangle tri(200, 20, 30, 50, 60, 70);
     tri.print_info();
+    try {
+        tri.domain_error();
+    } catch (const std::length_error& err){
+        std::cout << err.what() << std::endl;
+    }
 
-    right_triangle r_t(10, 20, 30, 50, 60);
+
+/*
+    right_triangle r_t(10, 20, 30, 50, 90);
     r_t.print_info();
+*/
+/*    try {
+        std::cout << r_t.domain_error();
+    } catch (const std::length_error& r_t_error){
+        std::cout << r_t_error.what() << std::endl;
+    }*//*
+
 
     isos_triangle i_t(10, 20, 50, 60);
     i_t.print_info();
@@ -41,6 +54,7 @@ int main() {
 
     rhomb rhombs(89, 79, 69);
     rhombs.print_info();
+*/
 
     return 0;
 }

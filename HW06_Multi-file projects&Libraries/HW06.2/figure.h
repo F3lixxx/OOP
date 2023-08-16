@@ -11,4 +11,6 @@ public:
     Figure();
 
     void print_info();
+
+    virtual std::string domain_error();
 };

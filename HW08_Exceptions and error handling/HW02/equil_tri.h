@@ -6,4 +6,6 @@ public:
     equil_triangle(int side_e_a);
 
     void print_info ();
+/*
+    std::string domain_error() override;*/
 };

@@ -1,4 +1,4 @@
-#include "triangle.h"
+#include "triangle_8.h"
 
 #pragma once
 
@@ -9,4 +9,6 @@ public:
     right_triangle(int side_A, int side_B, int side_C, int angle_a, int angle_b);
 
     void print_info ();
+
+  //  std::string domain_error() override;
 };

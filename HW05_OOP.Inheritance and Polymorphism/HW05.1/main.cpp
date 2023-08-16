@@ -1,5 +1,5 @@
 #include <iostream>
-//#include <windows.h>
+#include <windows.h>
 
 class Figure {
 protected:
@@ -97,8 +97,8 @@ public:
     }
 
     bool check() override {
-        triangle::check();
-        if (sides_ == 3 && angle_C == 90) {
+        bool ancestor_checked = triangle::check();
+        if (ancestor_checked && angle_C == 90) {
             return true;
         } else {
             return false;
@@ -116,8 +116,8 @@ public:
     }
 
     bool check() override {
-        triangle::check();
-        if (sides_a == sides_c && angle_A == angle_C) {
+        bool checked_i_t = triangle::check();
+        if (checked_i_t && sides_a == sides_c && angle_A == angle_C) {
             return true;
         } else {
             return false;
@@ -134,8 +134,8 @@ public:
     }
 
     bool check() override {
-        isos_triangle::check();
-        if (sides_a = sides_b = sides_c, angle_A == 60 && angle_B == 60 && angle_C == 60) {
+        bool checked_equil = isos_triangle::check();
+        if ( checked_equil && sides_a == sides_b == sides_c, angle_A == 60 && angle_B == 60 && angle_C == 60) {
             return true;
         } else {
             return false;
@@ -200,7 +200,6 @@ public:
             std::cout << "Количество сторон: " << sides_ << std::endl;
         } else {
             std::cout << "Неправильная" << std::endl;
-            std::cout << "Количество сторон: " << sides_ << std::endl;
         }
         std::cout << "Стороны: ";
         std::cout << "a=" << get_sides_k() << " b=" << get_sides_l() << " c=" << get_sides_m() << " d=" << get_sides_n()
@@ -220,8 +219,8 @@ public:
     }
 
     bool check() override {
-        rectangle_usual::check();
-        if (sides_a == sides_c && sides_b == sides_d &&
+       bool checked_rec = rectangle_usual::check();
+        if (checked_rec && sides_a == sides_c && sides_b == sides_d &&
             angle_A == 90 && angle_B == 90 && angle_C == 90 && angle_D == 90) {
             return true;
         } else {
@@ -239,8 +238,8 @@ public:
     }
 
     bool check() override {
-        rectangle::check();
-        if (sides_a == sides_b && sides_b == sides_c && sides_c == sides_d &&
+        bool checked_cube = rectangle::check();
+        if (checked_cube && sides_a == sides_b && sides_b == sides_c && sides_c == sides_d &&
             angle_A == 90 && angle_B == 90 && angle_C == 90 && angle_D == 90) {
             return true;
         } else {
@@ -262,8 +261,8 @@ public:
 
 
     bool check() override {
-        rectangle_usual::check();
-        if (sides_a == sides_c && sides_b == sides_d && angle_A == angle_C && angle_B == angle_D) {
+       bool checked_par = rectangle_usual::check();
+        if (checked_par && sides_a == sides_c && sides_b == sides_d && angle_A == angle_C && angle_B == angle_D) {
             return true;
         } else {
             return false;
@@ -281,8 +280,8 @@ public:
     }
 
     bool check() override {
-        parallel::check();
-        if (sides_a == sides_b && sides_b == sides_c && sides_c == sides_d &&
+        bool checked_rhomb = parallel::check();
+        if (checked_rhomb && sides_a == sides_b && sides_b == sides_c && sides_c == sides_d &&
             angle_A == angle_C && angle_B == angle_D) {
             return true;
         } else {
@@ -293,9 +292,9 @@ public:
 
 int main() {
 
-    /*  SetConsoleCP(CP_UTF8);
-      SetConsoleOutputCP(CP_UTF8);
-  */
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
+
 
     Figure f;
     f.print_info();
@@ -304,10 +303,10 @@ int main() {
     triangle t(10, 20, 30, 50, 60, 70);
     t.print_info();
 
-    right_triangle r_t(20, 30, 40, 90, 90);
+    right_triangle r_t(20, 30, 50, 45, 45);
     r_t.print_info();
 
-    isos_triangle i_t(10, 20, 30, 60, 70, 80);
+    isos_triangle i_t(10, 20, 30, 60, 60, 80);
     i_t.print_info();
 
     equil_triangle e_t(10);

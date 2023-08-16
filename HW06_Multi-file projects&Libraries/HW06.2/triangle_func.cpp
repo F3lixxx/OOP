@@ -34,3 +34,13 @@ void triangle:: print_info() {
         std::cout << "Углы: ";
         std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << '\n';
     }
+
+
+std::string triangle:: domain_error(){
+if(sides_a != 70){
+    throw std::length_error("Ошибка создания фигуры. Причина: Сторона А не равна 70");
+}
+else{
+    print_info();
+}
+}

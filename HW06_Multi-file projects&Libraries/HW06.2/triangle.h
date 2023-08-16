@@ -27,4 +27,6 @@ public:
     triangle(int side_a, int side_b, int side_c, int side_A, int side_B, int side_C);
 
     void print_info();
+
+    std::string domain_error() override;
 };

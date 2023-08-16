@@ -10,5 +10,8 @@ protected:
 public:
     Figure();
 
-    void print_info();
+   virtual void print_info();
+
+   virtual void domain_error();
+
 };

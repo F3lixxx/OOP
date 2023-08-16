@@ -1,4 +1,4 @@
-#include "triangle.h"
+#include "triangle_8.h"
 #include <iostream>
 
 int triangle::get_sides_a() { return sides_a; }
@@ -26,11 +26,16 @@ triangle::triangle(int side_a, int side_b, int side_c, int side_A, int side_B, i
 
 void triangle:: print_info() {
         std::cout << '\n';
-        std::cout << name_figure << std::endl;
-
-        std::cout << "Стороны: ";
-        std::cout << "a=" << get_sides_a() << " b=" << get_sides_b() << " c=" << get_sides_c() << '\n';
-
-        std::cout << "Углы: ";
-        std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << '\n';
+        std::cout << name_figure << "(cтороны: " << get_sides_a() << ", " << get_sides_b() << ", " << get_sides_c() << ';' <<
+        " Углы: " << get_angle_A() << ", " << get_angle_B() << ", " << get_angle_C() << ")" << " Создан" << '\n';
     }
+
+/*
+void triangle:: domain_error(){
+    if(sides_a != 70){
+        throw std::length_error("Ошибка создания фигуры. Причина: Сторона А не равна 70");
+    }
+    else{
+        print_info();
+    }
+}*/
