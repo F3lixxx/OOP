@@ -1,4 +1,4 @@
-#include "triangle_8.h"
+#include "trian.h"
 
 #pragma once
 
@@ -10,5 +10,5 @@ public:
 
     void print_info ();
 
-  //  std::string domain_error() override;
+    std::string domain_err(std:: string str) override;
 };

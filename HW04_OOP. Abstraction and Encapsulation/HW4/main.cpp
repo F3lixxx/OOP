@@ -1,57 +1,61 @@
+#include <windows.h>
 #include <iostream>
 #include <fstream>
-#include <string>
-#include <windows.h>
-#include <vector>
 
-class address {
+
+
+class Adress {
 private:
-    const std::string city_;
-    const std::string street_;
-    int home_ = 0;
-    int apart_ = 0;
+    std::string city_name_ ;
+    std::string street_name_ ;
+    int num_house_;
+    int num_flat_ ;
+
 public:
-    address(std::string city, std::string street, int home, int apart)
-    : city_(city), street_(street), home_(home), apart_(apart) {}
+
+    Adress() :city_name_(), street_name_(), num_house_(), num_flat_() {}
+
+    Adress(std::string city_name_, std::string street_name_, int num_house_, int num_flat_) :
+            city_name_(city_name_), street_name_(street_name_), num_house_(num_house_), num_flat_(num_flat_){}
 
 
-    std::string get_output_address() const {
-        std::string output_address = city_ + ", " + street_ + ", " + std::to_string(home_) + ", " + std::to_string(apart_) + '\n';
-        return output_address;
+    static void Get_Output_Address() {
+
+        std::ifstream fin("in.txt");
+        if (!fin.is_open()) std::exit(0);
+        int size; fin >> size;
+
+        Adress* adress_arr = new Adress[size];
+
+        for (int i = 0; i < size; i++) {
+            fin >> adress_arr[i].city_name_;
+            fin >> adress_arr[i].street_name_;
+            fin >> adress_arr[i].num_house_;
+            fin >> adress_arr[i].num_flat_;
+        }
+
+
+        std::ofstream  out("out.txt");
+        out << size << std::endl;
+        std::cout << size << std::endl;
+        for (int i = 0; i < size; i++) {
+            out << adress_arr[i].city_name_ << ", " << adress_arr[i].street_name_ << ", " << adress_arr[i].num_house_ << ", "
+                << adress_arr[i].num_flat_ << std::endl;
+            std::cout<< adress_arr[i].city_name_ << ", " << adress_arr[i].street_name_ << ", " << adress_arr[i].num_house_ << ", "
+                     << adress_arr[i].num_flat_ << std::endl;
+        }
+        out.close();
+
+        delete [] adress_arr;
+        fin.close();
     }
-
 };
 
 
 int main() {
-   SetConsoleCP(CP_UTF8);
-   SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+    SetConsoleOutputCP(CP_UTF8);
 
-    std::ifstream fin("in.txt");
-    std::ofstream fout("out.txt");
-
-    int size = 0;
-    fin >> size;
-    fout << size << '\n';
-    std::cout << size << '\n';
-    int home;
-    int apart;
-    std::string city;
-    std::string street;
-  //  std::vector<address> addresses;
-    address addresses(city, street, home, apart);
-  //  std::string* add = new std::string[size];
-    for (int j = 0; j < size; ++j) {
-
-        fin >> city >> street >> home >> apart;
-        //addresses.emplace_back(city, street, home, apart);
-    }
-    fin.close();
-
-    for (int j = size - 1; j >= 0; --j) {
-        fout << addresses[j].get_output_address();
-        std::cout << addresses[j].get_output_address();
-    }
-    fout.close();
+    Adress::Get_Output_Address();
     return 0;
 }

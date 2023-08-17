@@ -1,4 +1,5 @@
 #include "figure.h"
+#include "error.h"
 
 #pragma once
 
@@ -24,9 +25,10 @@ public:
 
     int get_angle_C();
 
-    triangle(int side_a, int side_b, int side_c, int side_A, int side_B, int side_C);
+    triangle(int side_a, int side_b, int side_c, int ang_A, int ang_B, int ang_C);
 
-    void print_info() override;
+    void print_info();
 
-    //void domain_error() override;
+    std::string domain_err(std:: string str) override;
+
 };

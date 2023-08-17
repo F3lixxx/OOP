@@ -1,4 +1,4 @@
-#include "isos_tri.h"
+#include "isos.h"
 
 
 isos_triangle::isos_triangle(int sideA, int sideB, int angleA1, int angleB1)
@@ -16,3 +16,10 @@ void isos_triangle::print_info () {
     std::cout << "Углы: ";
     std::cout << "A=" << get_angle_A() << " B=" << get_angle_B() << " C=" << get_angle_C() << '\n';
 }
+
+/*std::string isos_triangle:: domain_err(std:: string str) {
+    if(sides_a != sides_c && angle_A != angle_C){
+        throw std::length_error("Ошибка создания фигуры. Причина: Сторона А не равна стороне С и угол А не равен углу С");
+    }
+    return str;
+}*/

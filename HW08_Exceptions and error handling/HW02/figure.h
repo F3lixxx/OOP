@@ -10,8 +10,7 @@ protected:
 public:
     Figure();
 
-   virtual void print_info();
+    void print_info();
 
-   virtual void domain_error();
-
+    virtual std::string domain_err(std:: string str);
 };
