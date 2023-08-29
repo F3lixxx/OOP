@@ -1,4 +1,3 @@
-#pragma once
 #include "figure.h"
 
 #pragma once
@@ -30,5 +29,4 @@ public:
     void print_info() override;
 
     std::string error(std::string str) override;
-
 };

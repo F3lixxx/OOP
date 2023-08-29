@@ -1,7 +1,7 @@
 #include "equil.h"
 
 equil_triangle::equil_triangle(int side_e_a)
-    : isos_triangle(side_e_a, side_e_a, 90, 60) {
+    : isos_triangle(side_e_a, side_e_a, 60, 60) {
     name_figure = "Equil Triangle ";
 }
 

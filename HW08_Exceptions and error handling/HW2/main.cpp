@@ -4,6 +4,7 @@
 #include "isos.h"
 #include "equil.h"
 #include "right_tri.h"
+#include "rectangle.h"
 
 
 int main() {
@@ -45,5 +46,14 @@ int main() {
       } catch (const std::length_error &e_t_error) {
           std::cout << e_t_error.what() << std::endl;
       }
+
+      rectangle rec(10, 20, 30, 40, 50, 60, 70, 80);
+      rec.print_info();
+      //try {
+      //    std::cout << rec.error(er);
+      //}
+      //catch (const std::length_error& rec_error) {
+      //    std::cout << rec_error.what() << std::endl;
+      //}
     return 0;
 }

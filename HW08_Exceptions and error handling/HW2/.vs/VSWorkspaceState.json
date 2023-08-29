@@ -1,0 +1,17 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Локальный компьютер": [
+      "out\\build\\x64-Debug",
+      "out\\install\\x64-Debug",
+      "cmake-build-debug",
+      "..\\..\\..\\..\\Program Files (x86)\\HW2",
+      "out\\build\\Mingw64-Debug",
+      "out\\install\\Mingw64-Debug"
+    ]
+  },
+  "ExpandedNodes": [
+    ""
+  ],
+  "SelectedNode": "\\main.cpp",
+  "PreviewInSolutionExplorer": false
+}

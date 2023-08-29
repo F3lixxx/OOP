@@ -38,7 +38,7 @@ void triangle::print_info() {
 
 std::string triangle::error(std::string str) {
     if (sides_a != 70) {
-        throw std::length_error("Error creating a shape! Причина: Side A not equal 70");
+        throw std::length_error("Error creating a shape! Reason: Side A not equal 70");
     }
     return str;
 }
