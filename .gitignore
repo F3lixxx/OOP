@@ -1,9 +1,7 @@
 cmake-build-debug
 .idea
 main.exe
-.idea
 .vs
-.cmake-build-debug
-.Debug
-.out
-.x64
+Debug
+out
+x64
