@@ -1,9 +1,0 @@
-# ninja log v5
-13	1495	7150338187157756	CMakeFiles/HW2.dir/figurefunc.cpp.obj	6acdb2b1eea6e3c3
-8	1687	7150338187930186	CMakeFiles/HW2.dir/e_t_func.cpp.obj	cf4c830304073e88
-38	1686	7150338187157756	CMakeFiles/HW2.dir/r_t_func.cpp.obj	b46295f3378a9804
-44	1864	7150338191365868	CMakeFiles/HW2.dir/rec_func.cpp.obj	9573913586a360b4
-25	1687	7150338188820269	CMakeFiles/HW2.dir/isos.cpp.obj	31dea383a4097459
-1581	2458	7150338197719931	CMakeFiles/HW2.dir/tri_func.cpp.obj	bc530e64af413ac2
-31	2524	7150338198360724	CMakeFiles/HW2.dir/main.cpp.obj	ecd8f6feed0ccefd
-2525	3052	7150338203376461	HW2.exe	1fedcb29874ca563
