@@ -21,7 +21,7 @@ int rectangle::get_angle_D() { return angle_D; }
 
 rectangle::rectangle(int side_a, int side_b, int side_c, int side_d, 
 	int ang_A, int ang_B, int ang_C, int ang_D) : Figure() {
-    name_figure = "fourside ";
+    name_figure = "Fourside ";
     sides_ = 4;
     sides_a = side_a;
     sides_b = side_b;
@@ -43,8 +43,11 @@ void rectangle::print_info() {
 }
 
 std::string rectangle::error(std::string str) {
-    if (sides_a != 70) {
-        throw std::length_error("Error creating a shape! Reason: Side A not equal 70");
+    if (angle_A + angle_B + angle_C + angle_D != 360 || sides_ != 4) {
+        throw std::length_error("Error creating a shape! Reason: Sides not equal 360 or sides is not equal 4");
+    }
+    else{
+        std::cout << "Alles gut!" << std::endl;
     }
     return str;
 }

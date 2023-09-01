@@ -18,4 +18,6 @@ add_executable(HW2
         rectangle.h
         right_tri.h
         tri.h
-        tri_func.cpp)
+        tri_func.cpp
+        quadro.h
+        quadro_func.cpp)

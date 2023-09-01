@@ -5,6 +5,7 @@
 #include "equil.h"
 #include "right_tri.h"
 #include "rectangle.h"
+#include "quadro.h"
 
 
 int main() {
@@ -47,13 +48,22 @@ int main() {
           std::cout << e_t_error.what() << std::endl;
       }
 
-      rectangle rec(10, 20, 30, 40, 50, 60, 70, 80);
+      rectangle rec(10, 20, 30, 40, 50, 60, 70, 180);
       rec.print_info();
-      //try {
-      //    std::cout << rec.error(er);
-      //}
-      //catch (const std::length_error& rec_error) {
-      //    std::cout << rec_error.what() << std::endl;
-      //}
+      try {
+          std::cout << rec.error(er);
+      }
+      catch (const std::length_error& rec_error) {
+          std::cout << rec_error.what() << std::endl;
+      }
+
+    quadro qua(10, 20, 30);
+    qua.print_info();
+    try {
+        std::cout << qua.error(er);
+    }
+    catch (const std::length_error& qua_error) {
+        std::cout << qua_error.what() << std::endl;
+    }
     return 0;
 }
