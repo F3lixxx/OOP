@@ -1,9 +1,9 @@
 #include "rectangle.h"
 #pragma once
 
-class quadro : public rectangle {
+class rhomb : public rectangle {
 public:
-    quadro(int side_r_A, int side_r_B);
+    rhomb(int side_A, int ang_A, int ang_B);
 
     void print_info() override;
 

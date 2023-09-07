@@ -6,6 +6,9 @@
 #include "right_tri.h"
 #include "rectangle.h"
 #include "quadro.h"
+#include "Qube.h"
+#include "parallel.h"
+#include "rhomb.h"
 
 
 int main() {
@@ -57,13 +60,40 @@ int main() {
           std::cout << rec_error.what() << std::endl;
       }
 
-    quadro qua(10, 20, 30);
+    quadro qua(10, 20);
     qua.print_info();
     try {
         std::cout << qua.error(er);
     }
     catch (const std::length_error& qua_error) {
         std::cout << qua_error.what() << std::endl;
+    }
+
+    qube qub(20, 90);
+    qub.print_info();
+    try {
+        std::cout << qub.error(er);
+    }
+    catch (const std::length_error& qub_error) {
+        std::cout << qub_error.what() << std::endl;
+    }
+
+    parall par(10, 20, 30 , 40  );
+    par.print_info();
+    try {
+        std::cout << par.error(er);
+    }
+    catch (const std::length_error& par_error) {
+        std::cout << par_error.what() << std::endl;
+    }
+
+    rhomb rh(10,20,30);
+    rh.print_info();
+    try {
+        std::cout << rh.error(er);
+    }
+    catch (const std::length_error& rh_error) {
+        std::cout << rh_error.what() << std::endl;
     }
     return 0;
 }

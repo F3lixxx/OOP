@@ -20,4 +20,10 @@ add_executable(HW2
         tri.h
         tri_func.cpp
         quadro.h
-        quadro_func.cpp)
+        quadro_func.cpp
+        Qube.h
+        qube_func.cpp
+        parallel.h
+        parall_func.cpp
+        rhomb.h
+        rhomb.cpp)

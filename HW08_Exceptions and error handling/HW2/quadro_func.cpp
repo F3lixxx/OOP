@@ -3,7 +3,7 @@
 
 #pragma once
 
-quadro::quadro(int side_r_A, int side_r_B, int ang_D) : rectangle(side_r_A, side_r_B, side_r_A,
+quadro::quadro(int side_r_A, int side_r_B) : rectangle(side_r_A, side_r_B, side_r_A,
                                                               side_r_B, 90, 90, 90, 90) {
     name_figure = "Quadroside ";
 }
