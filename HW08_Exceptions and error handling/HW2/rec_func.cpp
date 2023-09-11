@@ -43,8 +43,11 @@ void rectangle::print_info() {
 }
 
 std::string rectangle::error(std::string str) {
-    if (angle_A + angle_B + angle_C + angle_D != 360 || sides_ != 4) {
+    if (angle_A + angle_B + angle_C + angle_D != 360) {
         throw std::length_error("Error creating a shape! Reason: Sides not equal 360 or sides is not equal 4");
+    }
+    else if (sides_ != 4){
+        throw std::length_error("Error creating a shape! Reason: Sides is not equal 4");
     }
     else{
         std::cout << "Alles gut!" << std::endl;

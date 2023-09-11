@@ -2,8 +2,8 @@
 
 #pragma 
 
-right_triangle::right_triangle(int side_A, int side_B, int side_C, int angle_a, int angle_b)
-    : triangle(side_A, side_B, side_C, angle_a, angle_b, 90) {
+right_triangle::right_triangle(int side_A, int side_B, int side_C, int angle_a, int angle_b, int angle_c)
+    : triangle(side_A, side_B, side_C, angle_a, angle_b, angle_c) {
     name_figure = "Right triangle ";
 }
 

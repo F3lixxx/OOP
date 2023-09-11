@@ -1,9 +1,9 @@
 #include "isos.h"
 
 
-isos_triangle::isos_triangle(int sideA, int sideB, int angleA1, int angleB1)
-    : triangle(sideA, sideB, sideA,
-        angleA1, angleB1, angleA1) {
+isos_triangle::isos_triangle(int sideA, int sideB, int sideC, int angleA1, int angleB1, int angleC1)
+    : triangle(sideA, sideB, sideC,
+        angleA1, angleB1, angleC1) {
     name_figure = "Isos Triangle ";
 }
 void isos_triangle::print_info() {
@@ -18,6 +18,12 @@ void isos_triangle::print_info() {
 std::string isos_triangle::error(std::string str) {
     if (sides_a != sides_c && angle_A != angle_C) {
         throw std::length_error("Error creating a shape! Reason: Side A is not equal Side C and Angle A not equal angle C");
+    }
+    else if (angle_A != angle_C){
+        throw std::length_error("Error creating a shape! Reason: Angle A is not equal Side C and Angle A not equal angle C");
+    }
+    else{
+        std::cout << "Alles gut!" << std::endl;
     }
     return str;
 }

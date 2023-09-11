@@ -3,8 +3,9 @@
 
 #pragma once
 
-quadro::quadro(int side_r_A, int side_r_B) : rectangle(side_r_A, side_r_B, side_r_A,
-                                                              side_r_B, 90, 90, 90, 90) {
+quadro::quadro(int side_r_A, int side_r_B, int side_r_C, int side_r_D, int angle_A, int angle_B, int angle_C, int angle_D)
+: rectangle(side_r_A, side_r_B, side_r_C,side_r_D,
+            angle_A, angle_B, angle_C, angle_D) {
     name_figure = "Quadroside ";
 }
 
@@ -18,8 +19,11 @@ void quadro::print_info() {
 }
 
 std::string quadro::error(std::string str) {
-    if (sides_a !=sides_c || sides_b != sides_d || angle_A != 90 || angle_B != 90 || angle_C != 90 || angle_D != 90) {
-        throw std::length_error("Error creating a shape! Reason: Sides not equal or sides is not equal 4");
+    if (sides_a !=sides_c || sides_b != sides_d ) {
+        throw std::length_error("Error creating a shape! Reason: Sides not equal");
+    }
+    else if ( angle_A != 90 || angle_B != 90 || angle_C != 90 || angle_D != 90){
+        throw std::length_error("Error creating a shape! Reason: Some Angles not equal 90 degrees");
     }
     else{
         std::cout << "Alles gut!" << std::endl;
