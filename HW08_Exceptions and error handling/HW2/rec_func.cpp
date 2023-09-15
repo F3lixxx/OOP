@@ -31,6 +31,9 @@ rectangle::rectangle(int side_a, int side_b, int side_c, int side_d,
     angle_B = ang_B;
     angle_C = ang_C;
     angle_D = ang_D;
+    if (sides_ != 4){
+        throw std::length_error("Error creating a Fourside! Reason: Sides is not equal 4");
+    }
 }
 
 void rectangle::print_info() {
@@ -39,18 +42,5 @@ void rectangle::print_info() {
 
     std::cout << "(sides " << get_sides_a() << ", " << get_sides_b() << ", " << get_sides_c() << ", " << get_sides_d() << "; ";
 
-    std::cout << "angle " << get_angle_A() << ", " << get_angle_B() << ", " << get_angle_C() << ", " << get_angle_D() << ")\n";
-}
-
-std::string rectangle::error(std::string str) {
-    if (angle_A + angle_B + angle_C + angle_D != 360) {
-        throw std::length_error("Error creating a shape! Reason: Sides not equal 360 or sides is not equal 4");
-    }
-    else if (sides_ != 4){
-        throw std::length_error("Error creating a shape! Reason: Sides is not equal 4");
-    }
-    else{
-        std::cout << "Alles gut!" << std::endl;
-    }
-    return str;
+    std::cout << "angle " << get_angle_A() << ", " << get_angle_B() << ", " << get_angle_C() << ", " << get_angle_D() << ")" <<std::endl;
 }

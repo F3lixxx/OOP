@@ -27,6 +27,4 @@ public:
     triangle(int side_a, int side_b, int side_c, int ang_A, int ang_B, int ang_C);
 
     void print_info() override;
-
-    std::string error(std::string str) override;
 };

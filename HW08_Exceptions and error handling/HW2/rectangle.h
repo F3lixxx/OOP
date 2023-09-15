@@ -31,6 +31,4 @@ public:
     rectangle(int side_a, int side_b, int side_c, int side_d, int ang_A, int ang_B, int ang_C, int ang_D);
 
     void print_info() override;
-
-    std::string error(std::string str) override;
 };

@@ -6,10 +6,12 @@
       "configurationType": "Debug",
       "inheritEnvironments": [ "msvc_x64_x64" ],
       "buildRoot": "${projectDir}\\out\\build\\${name}",
-      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "installRoot": "D:/ClionProjects/OOP/HW08_Exceptions and error handling/HW2",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "",
-      "ctestCommandArgs": ""
+      "ctestCommandArgs": "",
+      "cmakeExecutable": "D:/ClionProjects/OOP/HW08_Exceptions and error handling/HW2/CMakeSettings.json",
+      "intelliSenseMode": "linux-gcc-arm"
     },
     {
       "name": "Существующий кэш",
@@ -21,7 +23,7 @@
       "generator": "Ninja",
       "configurationType": "Debug",
       "buildRoot": "${projectDir}\\out\\build\\${name}",
-      "installRoot": "${projectDir}\\out\\install\\${name}",
+      "installRoot": "D:/ClionProjects/OOP/HW08_Exceptions and error handling/HW2/cmake-build-debug",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
       "ctestCommandArgs": "",
@@ -50,7 +52,8 @@
           "type": "STRING"
         }
       ],
-      "intelliSenseMode": "linux-gcc-x64"
+      "intelliSenseMode": "linux-gcc-x64",
+      "cmakeExecutable": "D:/ClionProjects/OOP/HW08_Exceptions and error handling/HW2/CMakeLists.txt"
     }
   ]
 }

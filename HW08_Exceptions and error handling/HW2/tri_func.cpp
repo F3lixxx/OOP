@@ -24,6 +24,9 @@ triangle::triangle(int side_a, int side_b, int side_c, int side_A, int side_B, i
     angle_A = side_A;
     angle_B = side_B;
     angle_C = side_C;
+    if (sides_ != 3) {
+        throw std::length_error("Error creating a Triangle! Reason: Side A not equal 70");
+    }
 }
 
 
@@ -33,13 +36,5 @@ void triangle::print_info() {
 
     std::cout << "(sides " << get_sides_a() << ", " << get_sides_b() << ", " << get_sides_c() << "; ";
 
-    std::cout << "angle "  << get_angle_A() << ", " << get_angle_B() << ", " << get_angle_C() << ")\n";
+    std::cout << "angle "  << get_angle_A() << ", " << get_angle_B() << ", " << get_angle_C() << ")\n" <<std::endl;
 }
-
-std::string triangle::error(std::string str) {
-    if (sides_a != 70) {
-        throw std::length_error("Error creating a shape! Reason: Side A not equal 70");
-    }
-    return str;
-}
-
