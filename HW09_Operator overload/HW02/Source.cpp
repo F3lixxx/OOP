@@ -15,16 +15,24 @@ public:
     }
 
 	Fraction operator + (Fraction& lhs) {
-        Fraction tmp(numerator_ * lhs.denominator_,denominator_ * lhs.denominator_
-            + lhs.numerator_ * lhs.denominator_, lhs.denominator_ * lhs.denominator_);
+        Fraction tmp((numerator_ * lhs.denominator_ + lhs.numerator_ * denominator_), lhs.denominator_ * denominator_);
         return tmp;
     }
 
-
-    friend std::ostream& operator<<(std::ostream& left, const Fraction& lhs);
+    int ret(int a, int b) {
+        int
+        if (a % b == 0)
+            return b;
+        if (b % a == 0) {
+            return a;
+        }
+        if (a > b)
+            return ret(a%b, b);
+        return ret(a, b%a);
+    }
+    friend std::ostream& operator << (std::ostream& left, const Fraction& lhs);
    // friend std::istream& operator>>(std::istream& left, const Fraction& lhs);
 };
-
 
     std::ostream& operator<<(std::ostream& out, const Fraction& lhs) 
 {
@@ -33,12 +41,15 @@ public:
 }
 
 
+
+
 int main() {
-    Fraction f1(6, 2);
-    Fraction f2(8, 9);
+    Fraction f1(8, 9);
+    Fraction f2(7, 6);
     Fraction sum = f1 + f2;
    // Fraction minu = f1 - f2;
 	std::cout << f1 << " + " << f2 << " = " << sum << std::endl;
+    sum.ret;
 	//std::cout << f1 << " - " << f2 << " = " << sum << std::endl;
     return 0;
 }
