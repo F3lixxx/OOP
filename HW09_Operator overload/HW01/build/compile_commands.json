@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/ClionProjects/OOP/HW09_Operator overload/HW01/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe   -g -std=gnu++23 -o CMakeFiles\\HW01.dir\\main.cpp.obj -c \"D:\\ClionProjects\\OOP\\HW09_Operator overload\\HW01\\main.cpp\"",
+  "file": "D:/ClionProjects/OOP/HW09_Operator overload/HW01/main.cpp",
+  "output": "CMakeFiles/HW01.dir/main.cpp.obj"
+}
+]
