@@ -1,8 +1,8 @@
 #include "leaver.h"
 
-namespace Greeting
+namespace Leaver
 {
-    std::string Greeter::greet() {
+    std::string Leave::leave() {
         std::string name;
         std::cout << "Enter your name: ";
         std::cin >> name;

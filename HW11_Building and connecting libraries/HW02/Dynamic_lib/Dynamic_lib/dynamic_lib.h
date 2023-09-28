@@ -7,11 +7,11 @@
 #define LIBBYE_API __declspec(dllimport)
 #endif
 
-namespace Leaver
+namespace Greeting
 {
-    class Leave
-    {
-    public:
-        LIBBYE_API std::string leave();
-    };
+	class Greeter
+	{
+	public:
+		LIBBYE_API std::string greet();
+	};
 }
