@@ -21,7 +21,7 @@ int main() {
     } catch (const std::length_error& err){
         std::cout << err.what() << std::endl;
     }
-/*
+
     right_triangle r_t(10, 20, 30, 50, 60);
     r_t.print_info();
 
@@ -44,7 +44,7 @@ int main() {
     parallel.print_info();
 
     rhomb rhombs(89, 79, 69);
-    rhombs.print_info();*/
+    rhombs.print_info();
 
     return 0;
 }

@@ -13,21 +13,16 @@ public:
         numerator_ = numerator;
         denominator_ = denominator;
     }
-    double firstfrac(Fraction& first) { return (numerator_ * first.denominator_ && first.numerator_ * denominator_); }
-   // bool operator==(const Fraction& other) const = default;
-    bool operator>(Fraction other) { return firstfrac(other) < other.firstfrac(other); }
-    bool operator<(Fraction other) { return other > *this; }
-    bool operator>=(Fraction other) { return !(*this < other); }
-    bool operator<=(Fraction other) { return !(*this > other); }
+    auto operator <=>(const Fraction& first) const = default;
 };
 
 int main()
 {
-    Fraction f1(1, 1);
-    Fraction f2(4, 2);
+    Fraction f1(1, 3);
+    Fraction f2(2, 1);
 
-  //  std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
-  //  std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
+    std::cout << "f1" << ((f1 == f2) ? " == " : " not == ") << "f2" << '\n';
+    std::cout << "f1" << ((f1 != f2) ? " != " : " not != ") << "f2" << '\n';
     std::cout << "f1" << ((f1 < f2) ? " < " : " not < ") << "f2" << '\n';
     std::cout << "f1" << ((f1 > f2) ? " > " : " not > ") << "f2" << '\n';
     std::cout << "f1" << ((f1 <= f2) ? " <= " : " not <= ") << "f2" << '\n';

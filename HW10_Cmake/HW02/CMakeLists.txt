@@ -3,23 +3,25 @@ project(HW06_2)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(HW06_2 
-		main.cpp
+set(SOURCE_lib 
+        main.cpp
         figure_func.cpp
-        triangle_func.cpp
-        right_tri.h
+        triangle_func.cpp 
         r_t_func.cpp
-        isos_tri.h
         i_t.cpp
-        equil_tri.h
         e_t_func.cpp
-        rectangle_usual.h
         rec_func.cpp
-        rectangle.h
         rectangle_func.cpp
-        cube.h
         cube_func.cpp
-        parallel.h
         parallel_func.cpp
-        rhomb_func.cpp
-)
+        rhomb_func.cpp)
+set(HEADER_lib  
+        right_tri.h
+        isos_tri.h
+        equil_tri.h
+        rectangle_usual.h
+        rectangle.h
+        cube.h
+        parallel.h)
+
+add_executable(${HW06_2} ${HEADER_lib} ${SOURCE_lib} )
