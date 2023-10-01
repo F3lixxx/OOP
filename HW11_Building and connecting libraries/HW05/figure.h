@@ -12,5 +12,5 @@ public:
 
     void print_info();
 
-    virtual std::string domain_error();
+    virtual void domain_error();
 };

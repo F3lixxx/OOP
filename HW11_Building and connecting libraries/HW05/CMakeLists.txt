@@ -22,5 +22,7 @@ add_library(files SHARED
 		parallel_func.cpp
 		rhomb_func.cpp)
 
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
+
 add_executable(HW05 main.cpp)
 target_link_libraries(HW05 files)

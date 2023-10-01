@@ -10,7 +10,7 @@ Figure::Figure(){
     std::cout << name_figure << std::endl;
 }
 
-std::string Figure:: domain_error(){
+void Figure:: domain_error(){
     if(sides_ != 0){
         throw std::length_error("Error creating a shape! sides are bigger then 0!");
     }
