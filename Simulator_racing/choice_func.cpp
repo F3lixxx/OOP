@@ -1,6 +1,6 @@
 #include "choice.h"
 
-choice::choice(int num) {
+choice::choice() {
     ground = "Land Transport";
     air_trans = "Air Transport";
 }

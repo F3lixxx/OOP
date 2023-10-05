@@ -7,7 +7,9 @@ private:
     std::string eagle;
     std::string broom;
 public:
-    air(int num);
+    air();
+
+    void type_race();
 
     void print (int trans);
 };

@@ -1,7 +1,7 @@
 #include "lenght.h"
 
 
-length::length(int c) : choice(c){
+length::length(int c) : choice(){
 
 }
 

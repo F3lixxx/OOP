@@ -8,7 +8,9 @@ private:
     std::string centaur;
     std::string bicycle_shoes;
 public:
-    terrain(int num);
+    terrain();
+
+    void type_race();
 
     void print(int transport);
 };

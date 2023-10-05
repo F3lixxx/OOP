@@ -5,41 +5,42 @@
 #include "air.h"
 
 
-int main() {
+
+void print (){
     int n;
-    int leng;
-    int number_transport;
-    choice choi(n);
     std::cout << "Welcome to Racing simulator \n"
                  "1. Racing for land transport\n"
                  "2. Racing for fly transport\n";
-   do{
-       std::cout <<"Choose type of racing ";
-       std::cin >> n;
-   }
-    while(n < 1 || n > 2);
-    {
-           if (n == 1) {
-               terrain ter(n);
-           } else if (n == 2) {
-               air ai(n);
-           } else {
-               std::cout << "Wrong type!\n";
-           }
-       }
 
+    while((n < 1) || (n > 2))
+    {
+        std::cout <<"Choose type of racing ";
+        std::cin >> n;
+        if ((n < 1) || (n > 2)) {
+            std::cout << "Wrong type!\n";
+        }
+    }
+}
+
+int main() {
+    int leng = 0;
+    choice choi;
+    terrain ter;
+    air ai;
     length len(leng);
+
+    print();
+
     do {
         std::cout << "Enter Length(length must be positive): ";
         std::cin >> leng;
-    }
-    while(leng < 0); {
         if (leng < 0) {
-            std::cout << "length is negative";
+            std::cout << "length is negative" << std::endl;
         }
-        }
-    std::cin >> number_transport;
-
+    }
+    while (leng < 0);
+    std::cout << "Type of race: " << ai.type_race() << std::endl;
+    std::cout << "Length: " << leng << std::endl;
 
     return 0;
 }

@@ -7,5 +7,5 @@ protected:
     std::string ground;
     std::string air_trans;
 public:
-    choice(int num);
+    choice();
 };
