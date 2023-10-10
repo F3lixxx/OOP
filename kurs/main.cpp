@@ -1,4 +1,5 @@
 #include <iostream>
+#include <set>
 
 int choose = 0;
 
@@ -17,14 +18,15 @@ protected:
 public:
     std::string getname_race(){return name_race_; }
 
-    std::string getcamel(){ return camel; };
-    std::string getfast_camel(){ return fast_camel;};
-    std::string getcentaur(){ return centaur; };
-    std::string getbicycle_shoes(){ return bicycle_shoes; };
+        std::string getcamel() { return camel; }
+        std::string getfast_camel() { return fast_camel; }
+        std::string getcentaur() { return centaur; }
+        std::string getbicycle_shoes() { return bicycle_shoes; }
 
-    std::string getflying_carpet(){ return flying_carpet; };
-    std::string geteagle(){ return eagle; };
-    std::string getbroom(){ return broom; };
+    std::string getflying_carpet(){ return flying_carpet; }
+    std::string geteagle(){ return eagle; }
+    std::string getbroom(){ return broom; }
+
 };
 
 class ground : public type_race{
@@ -73,8 +75,35 @@ void print(type_race &race){
     }
 }
 
+void choose_transport(type_race &chose){
+   int size;
+
+    while (true) {
+        std::cout << "Minimum of 2 vehicles must be registered";
+        std::cin >> size;
+        if (size == 1) {
+            std::cout << chose.getcamel();
+        } else if (size == 2) {
+            std::cout << chose.getfast_camel();
+        } else if (size == 3) {
+            std::cout << chose.getcentaur();
+        } else {
+            std::cout << chose.getbicycle_shoes();
+        }
+        if (size == 1 || size == 2 || size == 3 || size == 4) {
+            throw std::runtime_error("This transport is registered yet");
+
+        }
+    }
+}
+
+
 
 int main() {
+    int chooose;
+
+    ground ground_1;
+    air air_1;
     std::cout << "Welcome to Racing simulator \n"
                  "1. Racing for land transport\n"
                  "2. Racing for fly transport\n";
@@ -83,13 +112,13 @@ int main() {
         std::cout << "Choose type of racing ";
         std::cin >> choose;
     if (choose == 1) {
-        ground ground_1;
+        ground_1;
         print_information(ground_1);
         print(ground_1);
 
     }
     else if ( choose == 2){
-        air air_1;
+        air_1;
         print_information(air_1);
         print(air_1);
 
@@ -99,6 +128,12 @@ int main() {
             std::cout << "Wrong type!\n";
         }
     }
+    }
+    try{
+        choose_transport(ground_1);
+    }
+    catch (const std::runtime_error& e) {
+        std::cerr  << e.what() << std::endl;
     }
     return 0;
 }
